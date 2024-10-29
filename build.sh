@@ -136,6 +136,12 @@ gen_folder(){
 		sed -i 's/var PKG_TYPE=\"full\"/var PKG_TYPE=\"lite\"/g' ./shadowsocks/webs/Module_shadowsocks.asp
 	fi
 	
+	# if [ "${pkgtype}" == "lite" -a "${platform}" == "hnd" ];then
+	# 	# for small jffs router: RT-AX56U_V2 and RT-AX57, use smaller version of XRAY 1.8.3
+	# 	cp ./binaries/xray/v1.8.3/xray_armv7 ./shadowsocks/bin/xray
+	# fi
+
+	
 	if [ "${pkgtype}" == "full" ];then
 		# remove marked comment
 		# rm -rf ./shadowsocks/bin/sslocal

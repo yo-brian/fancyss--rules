@@ -16,13 +16,15 @@ fancyss Changelog
    - fix	修复插件在最新102固件中（RT-BE86U），前端js报错，页面加载左侧经常黑边的问题
    - fix	修复ss-rust二进制在线更新出现md5不一致的情况（在线修复）
    - update	优化插件安装时占用的jffs空间，实测在BE86U上，全新安装仅需7M的jffs空间（利用了固件的/data分区，并至少保留其256KB空间）
-   - update	RT-AX57机型在安装前会尝试释放更多jffs空间再进行安装
+   - update	现在RT-AX57机型在安装前会尝试释放更多jffs空间后再进行安装
    - update	现在检测到固件自带jq程序，将不会安装包内jq，因为最新102固件（如BE86U）自带jq，
    - update	现在检测到固件curl支持proxy（102改版固件支持该特性），将不会安装包内curl-fancyss，将节省1MB多的空间，
    - ............
-   - todo	更新hysteria2二进制
+   - todo 	更新hysteria2二进制
    - todo	更新v2ray，ss-rust更新机制（当安装在/data时，也应该更新到/data）
    - todo	更新默认值，附加设置 - 插件开启检测中，除了国内ip检测和出口ip检测默认开启，其余关闭（打勾）
+   - todo	因上游不再更新，移除shadowsocks-libev二进制及相关功能，现在full版ss协议默认由shadowsocks-rust运行，lite版ss协议由xray运行
+   - todo	full版本添加ss协议运行程序切换，可切换成xray运行ss协议
    
 3.3.3
    - note	本次主要为并修复一些已知问题，并继续优化插件占用jffs储存空间，实测全新安装，BE88U占用24.3MB

@@ -595,8 +595,13 @@ install_now(){
 		rm -rf /jffs/syslog.log
 		rm -rf /jffs/syslog.log-1
 		rm -rf /jffs/wglist
+		rm -rf /jffs/.sys/diag_db/*
+		# make a dummy
+		rm -rf /jffs/uu.tar.gz*
+		touch /jffs/uu.tar.gz
+	else
+		rm -rf /jffs/uu.tar.gz*
 	fi
-	rm -rf /jffs/uu.tar.gz*
 	echo 1 > /proc/sys/vm/drop_caches
 	sync
 
@@ -656,9 +661,17 @@ install_now(){
 
 	# 检测jffs储存空间是否足够
 	echo_date "检测jffs分区剩余空间..."
+
 	SPACE_AVAL=$(df | grep -w "/jffs" | awk '{print $4}')
-	SPACE_NEED=$(du -s /tmp/shadowsocks | awk '{print $1}')
-	if [ "$SPACE_AVAL" -gt "$SPACE_NEED" ];then
+	cd /tmp
+	tar -cz -f /tmp/test_size.tar.gz shadowsocks/
+	if [ -f "/tmp/test_size.tar.gz" ];then
+		SPACE_NEED=$(du -s /tmp/test_size.tar.gz | awk '{print $1}')
+		rm -rf /tmp/test_size.tar.gz
+	else
+		SPACE_NEED=$(du -s /tmp/shadowsocks | awk '{print $1}')
+	fi
+	if [ "${SPACE_AVAL}" -gt "${SPACE_NEED}" ];then
 		echo_date "当前jffs分区剩余${SPACE_AVAL}KB, 插件安装大概需要${SPACE_NEED}KB，空间满足，继续安装！"
 	else
 		echo_date "当前jffs分区剩余${SPACE_AVAL}KB, 插件安装大概需要${SPACE_NEED}KB，空间不足！"
@@ -819,7 +832,6 @@ install_now(){
 	fi
 
 	echo_date "更新完毕，请等待网页自动刷新！"
-	
 	exit_install
 }
 
