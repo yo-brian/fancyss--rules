@@ -19,6 +19,7 @@ fancyss Changelog
    - update	现在RT-AX57机型在安装前会尝试释放更多jffs空间后再进行安装
    - update	现在检测到固件自带jq程序，将不会安装包内jq，因为最新102固件（如BE86U）自带jq，
    - update	现在检测到固件curl支持proxy（102改版固件支持该特性），将不会安装包内curl-fancyss，将节省1MB多的空间，
+   - update	hnd版本更新curl二进制，减小体积，现在hnd_lite全新安装只占用大约只有8.5MB，
    - ............
    - todo 	更新hysteria2二进制
    - todo	更新v2ray，ss-rust更新机制（当安装在/data时，也应该更新到/data）
