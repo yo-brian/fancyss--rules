@@ -159,96 +159,90 @@ function createFormFields(data, settings) {
 	return form;
 }
 function pop_111() {
-	require(['/res/layer/layer.js'], function(layer) {
-		layer.open({
-			type: 2,
-			shade: .7,
-			scrollbar: 0,
-			title: '国内外分流信息来源：<a style="color:#00F" href="https://ip.skk.moe/" target="_blank">https://ip.skk.moe/</a>',
-			area: ['850px', '760px'],
-			fixed: false,   
-			move: false,
-			maxmin: true,
-			shadeClose: 1,
-			id: 'LAY_layuipro',
-			btnAlign: 'c',
-			content: ['https://ip.skk.moe/', 'yes'],
-		});
+	layer.open({
+		type: 2,
+		shade: .7,
+		scrollbar: 0,
+		title: '国内外分流信息来源：<a style="color:#00F" href="https://ip.skk.moe/" target="_blank">https://ip.skk.moe/</a>',
+		area: ['850px', '760px'],
+		fixed: false,   
+		move: false,
+		maxmin: true,
+		shadeClose: 1,
+		id: 'LAY_layuipro',
+		btnAlign: 'c',
+		content: ['https://ip.skk.moe/', 'yes'],
 	});
 }
 function pop_help() {
-	require(['/res/layer/layer.js'], function(layer) {
-		layer.open({
-			type: 1,
-			title: false,
-			closeBtn: false,
-			area: '600px;',
-			shade: 0.8,
-			shadeClose: 1,
-			scrollbar: false,
-			id: 'LAY_layuipro',
-			btn: ['关闭窗口'],
-			btnAlign: 'c',
-			moveType: 1,
-			content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">\
-				<b><% nvram_get("productid"); %> - 科学上网插件 - ' + db_ss["ss_basic_version_local"] + '</b><br \><br \>\
-				本插件是支持\
-				<a target="_blank" href="https://github.com/shadowsocks/shadowsocks-libev"><u>SS</u></a>\
-				、<a target="_blank" href="https://github.com/shadowsocksrr/shadowsocksr-libev"><u>SSR</u></a>\
-				、<a target="_blank" href="https://github.com/v2ray/v2ray-core"><u>V2ray</u></a>\
-				、<a target="_blank" href="https://github.com/XTLS/xray-core"><u>Xray</u></a>\
-				、<a target="_blank" href="https://github.com/trojan-gfw/trojan"><u>Trojan</u></a>\
-				、<a target="_blank" href="https://github.com/klzgrad/naiveproxy"><u>NaïveProxy</u></a>\
-				、<a target="_blank" href="https://github.com/EAimTY/tuic"><u>tuic</u></a>\
-				七种客户端的科学上网、游戏加速工具。<br \><br \>\
-				本插件支持以Asuswrt、Asuswrt-Merlin为基础的，带软件中心的固件，目前固件均由<a style="color:#e7bd16" target="_blank" href="https://www.koolcenter.com/">https:\/\/www.koolcenter.com/</a>提供。<br \><br \>\
-				使用本插件有任何问题，可以前往<a style="color:#e7bd16" target="_blank" href="https://github.com/hq450/fancyss/issues"><u>github的issue页面</u></a>反馈~<br \><br \>\
-				● 插件交流：<a style="color:#e7bd16" target="_blank" href="https://t.me/+PzdfDBssIIFmMThl"><u>加入telegram群组</u></a><br \><br \>\
-				我们的征途是星辰大海 ^_^</div>'
-		});
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: false,
+		area: '600px;',
+		shade: 0.8,
+		shadeClose: 1,
+		scrollbar: false,
+		id: 'LAY_layuipro',
+		btn: ['关闭窗口'],
+		btnAlign: 'c',
+		moveType: 1,
+		content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">\
+			<b><% nvram_get("productid"); %> - 科学上网插件 - ' + db_ss["ss_basic_version_local"] + '</b><br \><br \>\
+			本插件是支持\
+			<a target="_blank" href="https://github.com/shadowsocks/shadowsocks-libev"><u>SS</u></a>\
+			、<a target="_blank" href="https://github.com/shadowsocksrr/shadowsocksr-libev"><u>SSR</u></a>\
+			、<a target="_blank" href="https://github.com/v2ray/v2ray-core"><u>V2ray</u></a>\
+			、<a target="_blank" href="https://github.com/XTLS/xray-core"><u>Xray</u></a>\
+			、<a target="_blank" href="https://github.com/trojan-gfw/trojan"><u>Trojan</u></a>\
+			、<a target="_blank" href="https://github.com/klzgrad/naiveproxy"><u>NaïveProxy</u></a>\
+			、<a target="_blank" href="https://github.com/EAimTY/tuic"><u>tuic</u></a>\
+			七种客户端的科学上网、游戏加速工具。<br \><br \>\
+			本插件支持以Asuswrt、Asuswrt-Merlin为基础的，带软件中心的固件，目前固件均由<a style="color:#e7bd16" target="_blank" href="https://www.koolcenter.com/">https:\/\/www.koolcenter.com/</a>提供。<br \><br \>\
+			使用本插件有任何问题，可以前往<a style="color:#e7bd16" target="_blank" href="https://github.com/hq450/fancyss/issues"><u>github的issue页面</u></a>反馈~<br \><br \>\
+			● 插件交流：<a style="color:#e7bd16" target="_blank" href="https://t.me/+PzdfDBssIIFmMThl"><u>加入telegram群组</u></a><br \><br \>\
+			我们的征途是星辰大海 ^_^</div>'
 	});
 }
 function pop_node_add() {
 	note = "<li>检测到你尚未添加任何代理节点！你至少需要一个节点，才能让插件正常工作！</li><br /> ";
 	note += "<li>如果你已经有节点，请从【手动添加】【节点订阅】【恢复配置】中选择一种添加。</li><br />";
-	require(['/res/layer/layer.js'], function(layer) {
-		layer.open({
-			type: 0,
-			skin: 'layui-layer-lan',
-			shade: 0.8,
-			title: '提醒',
-			area: ['620px', '220px'],
-			time: 0,
-			btnAlign: 'c',
-			maxmin: true,
-			content: note,
-			btn: ['手动添加', '订阅节点', '恢复配置'],
-			btn1: function() {
-				$("#add_ss_node").trigger("click");
-				layer.closeAll();
-			},
-			btn2: function() {
-				$("#show_btn7").trigger("click");
-			},
-			btn3: function() {
-				$("#show_btn9").trigger("click");
-			},
-			success: function(layero, index){
-				console.log(index);
-				var page_h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-				var page_w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-				var elem_h = E("layui-layer" + index).clientHeight;
-				var elem_w = E("layui-layer" + index).clientWidth;
-				var elem_h_offset = (page_h - elem_h) / 2 - 90;
-				var elem_w_offset = (page_w - elem_w) / 2 + 90;
-				if(elem_h_offset < 0){
-					elem_h_offset = 10;
-				}
-				$('#layui-layer' + index).offset({top: elem_h_offset, left: elem_w_offset});
+	layer.open({
+		type: 0,
+		skin: 'layui-layer-lan',
+		shade: 0.8,
+		title: '提醒',
+		area: ['620px', '220px'],
+		time: 0,
+		btnAlign: 'c',
+		maxmin: true,
+		content: note,
+		btn: ['手动添加', '订阅节点', '恢复配置'],
+		btn1: function() {
+			$("#add_ss_node").trigger("click");
+			layer.closeAll();
+		},
+		btn2: function() {
+			$("#show_btn7").trigger("click");
+		},
+		btn3: function() {
+			$("#show_btn9").trigger("click");
+		},
+		success: function(layero, index){
+			console.log(index);
+			var page_h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+			var page_w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			var elem_h = E("layui-layer" + index).clientHeight;
+			var elem_w = E("layui-layer" + index).clientWidth;
+			var elem_h_offset = (page_h - elem_h) / 2 - 90;
+			var elem_w_offset = (page_w - elem_w) / 2 + 90;
+			if(elem_h_offset < 0){
+				elem_h_offset = 10;
 			}
-		});
-		poped = 1;
+			$('#layui-layer' + index).offset({top: elem_h_offset, left: elem_w_offset});
+		}
 	});
+	poped = 1;
 }
 
 function pop_node_add_ads() {
@@ -256,51 +250,49 @@ function pop_node_add_ads() {
 	note += "<li>如果你已经有节点，请从【手动添加】【节点订阅】【恢复配置】中选择一种添加。</li><br />";
 	note += "<li>如果你没有节点且不知道如何购买或搭建，可以点击【机场推荐】购买本插件推荐的机场<br />";
 	//ads_url_1 = 'https://123s.co/#/register?code=yf6ozeEO';
-	require(['/res/layer/layer.js'], function(layer) {
-		layer.open({
-			type: 0,
-			skin: 'layui-layer-lan',
-			shade: 0.8,
-			title: '提醒',
-			area: ['620px', '280px'],
-			time: 0,
-			btnAlign: 'c',
-			maxmin: true,
-			content: note,
-			btn: ['手动添加', '订阅节点', '恢复配置', '机场推荐'],
-			btn1: function() {
-				$("#add_ss_node").trigger("click");
-				layer.closeAll();
-			},
-			btn2: function() {
-				$("#show_btn7").trigger("click");
-			},
-			btn3: function() {
-				$("#show_btn9").trigger("click");
-			},
-			btn4: function() {
-				window.open(
-					ads_url_1,
-					'_blank'
-				);
-				return false;
-			},
-			success: function(layero, index){
-				console.log(index);
-				var page_h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-				var page_w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-				var elem_h = E("layui-layer" + index).clientHeight;
-				var elem_w = E("layui-layer" + index).clientWidth;
-				var elem_h_offset = (page_h - elem_h) / 2 - 90;
-				var elem_w_offset = (page_w - elem_w) / 2 + 90;
-				if(elem_h_offset < 0){
-					elem_h_offset = 10;
-				}
-				$('#layui-layer' + index).offset({top: elem_h_offset, left: elem_w_offset});
+	layer.open({
+		type: 0,
+		skin: 'layui-layer-lan',
+		shade: 0.8,
+		title: '提醒',
+		area: ['620px', '280px'],
+		time: 0,
+		btnAlign: 'c',
+		maxmin: true,
+		content: note,
+		btn: ['手动添加', '订阅节点', '恢复配置', '机场推荐'],
+		btn1: function() {
+			$("#add_ss_node").trigger("click");
+			layer.closeAll();
+		},
+		btn2: function() {
+			$("#show_btn7").trigger("click");
+		},
+		btn3: function() {
+			$("#show_btn9").trigger("click");
+		},
+		btn4: function() {
+			window.open(
+				ads_url_1,
+				'_blank'
+			);
+			return false;
+		},
+		success: function(layero, index){
+			console.log(index);
+			var page_h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+			var page_w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			var elem_h = E("layui-layer" + index).clientHeight;
+			var elem_w = E("layui-layer" + index).clientWidth;
+			var elem_h_offset = (page_h - elem_h) / 2 - 90;
+			var elem_w_offset = (page_w - elem_w) / 2 + 90;
+			if(elem_h_offset < 0){
+				elem_h_offset = 10;
 			}
-		});
-		poped = 1;
+			$('#layui-layer' + index).offset({top: elem_h_offset, left: elem_w_offset});
+		}
 	});
+	poped = 1;
 }
 function compare(val1,val2){
 	return val1-val2;

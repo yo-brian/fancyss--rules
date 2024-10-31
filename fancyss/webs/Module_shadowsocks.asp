@@ -19,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <link rel="stylesheet" type="text/css" href="/res/fancyss.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
+<script language="JavaScript" type="text/javascript" src="/res/layer/layer.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script language="JavaScript" type="text/javascript" src="/state.js"></script>
 <script language="JavaScript" type="text/javascript" src="/general.js"></script>
@@ -4464,18 +4465,6 @@ function get_ss_status_back() {
 				var dbus_post = {};
 				dbus_post["ss_heart_beat"] = "0";
 				push_data("dummy_script.sh", "", dbus_post, "2");
-				// require(['/res/layer/layer.js'], function(layer) {
-				// 	layer.confirm('<li>科学上网插件页面需要刷新！</li><br /><li>由于故障转移功能已经在后台切换了节点，为了保证页面显示正确配置！需要刷新此页面！</li><br /><li>确定现在刷新吗？</li>', {
-				// 		time: 3e4,
-				// 		shade: 0.8
-				// 	}, function(index) {
-				// 		layer.close(index);
-				// 		refreshpage();
-				// 	}, function(index) {
-				// 		layer.close(index);
-				// 		return false;
-				// 	});
-				// });
 			}
 		}else{
 			E("ss_state2").innerHTML = "国外连接 - " + "Waiting ...";
@@ -4520,17 +4509,15 @@ function get_ss_status_back_httpd() {
 					var dbus_post = {};
 					dbus_post["ss_heart_beat"] = "0";
 					push_data("dummy_script.sh", "", dbus_post, "2");
-					require(['/res/layer/layer.js'], function(layer) {
-						layer.confirm('<li>科学上网插件页面需要刷新！</li><br /><li>由于故障转移功能已经在后台切换了节点，为了保证页面显示正确配置！需要刷新此页面！</li><br /><li>确定现在刷新吗？</li>', {
-							time: 3e4,
-							shade: 0.8
-						}, function(index) {
-							layer.close(index);
-							refreshpage();
-						}, function(index) {
-							layer.close(index);
-							return false;
-						});
+					layer.confirm('<li>科学上网插件页面需要刷新！</li><br /><li>由于故障转移功能已经在后台切换了节点，为了保证页面显示正确配置！需要刷新此页面！</li><br /><li>确定现在刷新吗？</li>', {
+						time: 3e4,
+						shade: 0.8
+					}, function(index) {
+						layer.close(index);
+						refreshpage();
+					}, function(index) {
+						layer.close(index);
+						return false;
 					});
 				}
 			}
@@ -5290,16 +5277,14 @@ function write_proc_status() {
 }
 function get_online_nodes(action) {
 	if (action == 0 || action == 1) {
-		require(['/res/layer/layer.js'], function(layer) {
-			layer.confirm('你确定要删除吗？', {
-				shade: 0.8,
-			}, function(index) {
-				layer.close(index);
-				save_online_nodes(action);
-			}, function(index) {
-				layer.close(index);
-				return false;
-			});
+		layer.confirm('你确定要删除吗？', {
+			shade: 0.8,
+		}, function(index) {
+			layer.close(index);
+			save_online_nodes(action);
+		}, function(index) {
+			layer.close(index);
+			return false;
 		});
 	} else {
 		save_online_nodes(action);
@@ -5335,20 +5320,18 @@ function save_online_nodes(action) {
 function v2ray_binary_update(){																												//fancyss-full
 	var dbus_post = {};																														//fancyss-full
 	db_ss["ss_basic_action"] = "15";																										//fancyss-full
-	require(['/res/layer/layer.js'], function(layer) {																						//fancyss-full
-		layer.confirm('<li>为了避免不必要的问题，请保证路由器和服务器上的v2ray版本一致！</li><br /><li>你确定要更新v2ray二进制吗？</li>', {	//fancyss-full
-			shade: 0.8,																														//fancyss-full
-		}, function(index) {																												//fancyss-full
-			$("#log_content3").attr("rows", "20");																							//fancyss-full
-			push_data("ss_v2ray.sh", 1, dbus_post);																							//fancyss-full
-			layer.close(index);																												//fancyss-full
-			return true;																													//fancyss-full
-			//save_online_nodes(action);																									//fancyss-full
-		}, function(index) {																												//fancyss-full
-			layer.close(index);																												//fancyss-full
-			return false;																													//fancyss-full
-		});																																	//fancyss-full
-	});																																		//fancyss-full
+	layer.confirm('<li>为了避免不必要的问题，请保证路由器和服务器上的v2ray版本一致！</li><br /><li>你确定要更新v2ray二进制吗？</li>', {	//fancyss-full
+		shade: 0.8,																														//fancyss-full
+	}, function(index) {																												//fancyss-full
+		$("#log_content3").attr("rows", "20");																							//fancyss-full
+		push_data("ss_v2ray.sh", 1, dbus_post);																							//fancyss-full
+		layer.close(index);																												//fancyss-full
+		return true;																													//fancyss-full
+		//save_online_nodes(action);																									//fancyss-full
+	}, function(index) {																												//fancyss-full
+		layer.close(index);																												//fancyss-full
+		return false;																													//fancyss-full
+	});																																	//fancyss-full
 }																																			//fancyss-full
 function xray_binary_update(){
 	var dbus_post = {};
@@ -5357,46 +5340,42 @@ function xray_binary_update(){
 	note += "<li>v1.8.X：security支持TLS和REALITY，不支持XTLS，选此会将Xray二进制更新到1.8.x最新版本！</li>";
 	note += "<li>切换/更新文件将从github上下载，请确保当前代理工作正常，不然将无法下载或下载及其缓慢！</li>";
 	note += "<li>更多信息，请查看<a style='color:#22ab39;' href='https://github.com/XTLS/Xray-core/releases' target='_blank'>Xray releases页面</a>。</li>";
-	require(['/res/layer/layer.js'], function(layer) {
-		layer.open({
-			type: 0,
-			skin: 'layui-layer-lan',
-			shade: 0.8,
-			title: '请选择你需要的Xray版本！',
-			time: 0,
-			area: '670px',
-			offset: '350px',
-			btnAlign: 'c',
-			maxmin: true,
-			content: note,
-			btn: ['v1.7.5', 'v1.8.x'],
-			btn1: function() {
-				push_data("ss_xray.sh", 1, dbus_post);
-				layer.closeAll();
-			},
-			btn2: function() {
-				push_data("ss_xray.sh", 2, dbus_post);
-			}
-		});
+	layer.open({
+		type: 0,
+		skin: 'layui-layer-lan',
+		shade: 0.8,
+		title: '请选择你需要的Xray版本！',
+		time: 0,
+		area: '670px',
+		offset: '350px',
+		btnAlign: 'c',
+		maxmin: true,
+		content: note,
+		btn: ['v1.7.5', 'v1.8.x'],
+		btn1: function() {
+			push_data("ss_xray.sh", 1, dbus_post);
+			layer.closeAll();
+		},
+		btn2: function() {
+			push_data("ss_xray.sh", 2, dbus_post);
+		}
 	});
 }
 function ssrust_binary_update(){																					//fancyss-full
 	var dbus_post = {};																								//fancyss-full
 	db_ss["ss_basic_action"] = "20";																				//fancyss-full
-	require(['/res/layer/layer.js'], function(layer) {																//fancyss-full
-		layer.confirm('<li>点击确定将开始shadowsocks-rust二进制下载，请确保你的路由器jffs空间容量足够！</li>', {	//fancyss-full
-			shade: 0.8,																								//fancyss-full
-		}, function(index) {																						//fancyss-full
-			$("#log_content3").attr("rows", "20");																	//fancyss-full
-			push_data("ss_rust_update.sh", 1, dbus_post);															//fancyss-full
-			layer.close(index);																						//fancyss-full
-			return true;																							//fancyss-full
-			//save_online_nodes(action);																			//fancyss-full
-		}, function(index) {																						//fancyss-full
-			layer.close(index);																						//fancyss-full
-			return false;																							//fancyss-full
-		});																											//fancyss-full
-	});																												//fancyss-full
+	layer.confirm('<li>点击确定将开始shadowsocks-rust二进制下载，请确保你的路由器jffs空间容量足够！</li>', {	//fancyss-full
+		shade: 0.8,																								//fancyss-full
+	}, function(index) {																						//fancyss-full
+		$("#log_content3").attr("rows", "20");																	//fancyss-full
+		push_data("ss_rust_update.sh", 1, dbus_post);															//fancyss-full
+		layer.close(index);																						//fancyss-full
+		return true;																							//fancyss-full
+		//save_online_nodes(action);																			//fancyss-full
+	}, function(index) {																						//fancyss-full
+		layer.close(index);																						//fancyss-full
+		return false;																							//fancyss-full
+	});																											//fancyss-full
 }																													//fancyss-full
 function set_cron(action) {
 	var dbus_post = {};
