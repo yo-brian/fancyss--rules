@@ -26,7 +26,10 @@ get_gfwlist(){
 	curl -4sk https://raw.githubusercontent.com/pexcn/daily/gh-pages/gfwlist/gfwlist.txt >${CURR_PATH}/gfwlist_2.txt
 
 	# merge list
-	cat ${CURR_PATH}/gfwlist_1.txt ${CURR_PATH}/gfwlist_2.txt ${CURR_PATH}/gfwlist_ext.txt | grep -Ev "([0-9]{1,3}[\.]){3}[0-9]{1,3}" | sort -u >${CURR_PATH}/gfwlist_merge.txt 
+	cat ${CURR_PATH}/gfwlist_1.txt ${CURR_PATH}/gfwlist_2.txt ${CURR_PATH}/gfwlist_ext.txt | grep -Ev "([0-9]{1,3}[\.]){3}[0-9]{1,3}" | sort -u >${CURR_PATH}/gfwlist_merge.txt
+
+	# modify
+	sed -i '/hasi\./d' ${CURR_PATH}/gfwlist_merge.txt
 
 	# 2. merge
 	cat ${CURR_PATH}/gfwlist_merge.txt | sed "s/^/server=&\/./g" | sed "s/$/\/127.0.0.1#7913/g" >${CURR_PATH}/gfwlist_merge.conf
