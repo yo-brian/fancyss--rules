@@ -622,7 +622,7 @@ install_now(){
 		fi
 	fi
 	
-	# some file in package no not need to install
+	# some file in package no need to install
 	if [ -n "$(which socat)" ];then
 		rm -rf /tmp/shadowsocks/bin/uredir
 	fi
@@ -694,8 +694,11 @@ install_now(){
 	
 	echo_date "复制相关的网页文件！"
 	cp -rf /tmp/shadowsocks/webs/* /koolshare/webs/
+	local _LAYJS_MD5=$(md5sum /koolshare/res/layer/layer.js | awk '{print $1}')
+	if [ -f "/koolshare/res/layer/layer.js" -a "${_LAYJS_MD5}" == "9d72838d6f33e45f058cc1fa00b7a5c7" ]
+		mv -rf /tmp/shadowsocks/res/layer/layer.js /tmp/shadowsocks/res/layer/
+	fi
 	cp -rf /tmp/shadowsocks/res/* /koolshare/res/
-
 	sync
 
 	# Permissions
