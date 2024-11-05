@@ -420,6 +420,10 @@ check_empty_node(){
 }
 
 check_device(){
+	if [ ! -d "/data" ];then
+		return "1"
+	fi
+	
 	mkdir -p $1/rw_test
 	sync
 	if [ -d "$1/rw_test" ]; then
@@ -551,17 +555,19 @@ install_now(){
 	rm -rf /koolshare/bin/dig
 
 	# some file may exist in /data
-	rm -rf /data/xray >/dev/null 2>&1
-	rm -rf /data/v2ray >/dev/null 2>&1
-	rm -rf /data/hysteria2 >/dev/null 2>&1
-	rm -rf /data/naive >/dev/null 2>&1
-	rm -rf /data/sslocal >/dev/null 2>&1
-	rm -rf /data/ss-local >/dev/null 2>&1
-	rm -rf /data/ss-redir >/dev/null 2>&1
-	rm -rf /data/ss-tunnel >/dev/null 2>&1
-	rm -rf /data/rss-local >/dev/null 2>&1
-	rm -rf /data/rss-redir >/dev/null 2>&1
-
+	if [ -d "/data" ];then
+		rm -rf /data/xray >/dev/null 2>&1
+		rm -rf /data/v2ray >/dev/null 2>&1
+		rm -rf /data/hysteria2 >/dev/null 2>&1
+		rm -rf /data/naive >/dev/null 2>&1
+		rm -rf /data/sslocal >/dev/null 2>&1
+		rm -rf /data/ss-local >/dev/null 2>&1
+		rm -rf /data/ss-redir >/dev/null 2>&1
+		rm -rf /data/ss-tunnel >/dev/null 2>&1
+		rm -rf /data/rss-local >/dev/null 2>&1
+		rm -rf /data/rss-redir >/dev/null 2>&1
+	fi
+	
 	# legacy files should be removed
 	rm -rf /koolshare/bin/trojan
 	rm -rf /koolshare/bin/haproxy
