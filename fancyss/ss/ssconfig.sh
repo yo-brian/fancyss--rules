@@ -3,6 +3,8 @@
 # fancyss script for asuswrt/merlin based router with software center
 
 source /koolshare/scripts/ss_base.sh
+NEW_PATH=$(echo $PATH|tr ':' '\n'|sed '/opt/d;/mmc/d'|awk '!a[$0]++'|tr '\n' ':'|sed '$ s/:$//')
+export PATH=${NEW_PATH}
 #-----------------------------------------------
 # Variable definitions
 THREAD=$(grep -c '^processor' /proc/cpuinfo)

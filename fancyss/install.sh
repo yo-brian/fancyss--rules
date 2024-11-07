@@ -3,6 +3,8 @@
 # fancyss script for asuswrt/merlin based router with software center
 
 source /koolshare/scripts/base.sh
+NEW_PATH=$(echo $PATH|tr ':' '\n'|sed '/opt/d;/mmc/d'|awk '!a[$0]++'|tr '\n' ':'|sed '$ s/:$//')
+export PATH=${NEW_PATH}
 alias echo_date='echo 【$(TZ=UTC-8 date -R +%Y年%m月%d日\ %X)】:'
 MODEL=
 FW_TYPE_NAME=
