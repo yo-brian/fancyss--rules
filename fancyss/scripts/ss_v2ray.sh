@@ -28,6 +28,12 @@ mtk)
 	;;
 esac
 
+# get v2ray location
+_TARGET_FILE=$(readlink /koolshare/bin/v2ray)
+if [ -z ${_TARGET_FILE} ];then
+	_TARGET_FILE=/koolshare/bin/v2ray
+fi
+
 get_latest_version(){
 	rm -rf /tmp/v2ray_latest_info.txt
 	echo_date "检测V2ray最新版本..."
@@ -45,7 +51,7 @@ get_latest_version(){
 		[ -z "${V2VERSION}" ] && V2VERSION="0"
 		
 		echo_date "检测到V2ray最新版本：${V2VERSION}"
-		if [ ! -f "/koolshare/bin/v2ray" ];then
+		if [ ! -f "${_TARGET_FILE}" ];then
 			echo_date "v2ray安装文件丢失！重新下载！"
 			CUR_VER="0"
 		else
@@ -58,7 +64,7 @@ get_latest_version(){
 			[ "${CUR_VER}" != "0" ] && echo_date "V2ray已安装版本号低于最新版本，开始更新程序..."
 			update_now v${V2VERSION}
 		else
-			V2RAY_LOCAL_VER=$(/koolshare/bin/v2ray version 2>/dev/null | head -n 1 | cut -d " " -f2)
+			V2RAY_LOCAL_VER=$(${_TARGET_FILE} version 2>/dev/null | head -n 1 | cut -d " " -f2)
 			[ -n "$V2RAY_LOCAL_VER" ] && dbus set ss_basic_v2ray_version="$V2RAY_LOCAL_VER"
 			echo_date "V2ray已安装版本已经是最新，退出更新程序!"
 		fi
@@ -143,8 +149,11 @@ install_binary(){
 
 move_binary(){
 	echo_date "开始替换v2ray二进制文件... "
-	mv /tmp/v2ray/v2ray /koolshare/bin/v2ray
-	chmod +x /koolshare/bin/v2*
+	mv /tmp/v2ray/v2ray ${_TARGET_FILE}
+	chmod +x ${_TARGET_FILE}
+	if [ -f ${_TARGET_FILE} -a ! -f /koolshare/bin/xray ];then
+		ln -sf ${_TARGET_FILE} /koolshare/bin/xray
+	fi
 	V2RAY_LOCAL_VER=$(/koolshare/bin/v2ray version 2>/dev/null | head -n 1 | cut -d " " -f2)
 	V2RAY_LOCAL_DATE=$(/koolshare/bin/v2ray version 2>/dev/null | head -n 1 | cut -d " " -f5)
 	[ -n "$V2RAY_LOCAL_VER" ] && dbus set ss_basic_v2ray_version="$V2RAY_LOCAL_VER"

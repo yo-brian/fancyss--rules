@@ -32,6 +32,11 @@ mtk)
 	;;
 esac
 
+_TARGET_FILE=$(readlink /koolshare/bin/sslocal)
+if [ -z ${_TARGET_FILE} ];then
+	_TARGET_FILE=/koolshare/bin/sslocal
+fi
+
 get_latest_version(){
 	flag=$1
 	rm -rf /tmp/ssrust_latest_info.txt
@@ -52,11 +57,11 @@ get_latest_version(){
 		fi
 		
 		echo_date "检测到shadowsocks-rust最新版本：${RVERSION}"
-		if [ ! -x "/koolshare/bin/sslocal" ];then
+		if [ ! -x "${_TARGET_FILE}" ];then
 			echo_date "shadowsocks-rust二进制文件sslocal不存在！开始下载！"
 			update_now v${RVERSION}
 		else
-			CUR_VER_ORIG=$(env -i /koolshare/bin/sslocal --version 2>/dev/null | awk '{print $NF}')
+			CUR_VER_ORIG=$(env -i ${_TARGET_FILE} --version 2>/dev/null | awk '{print $NF}')
 			CUR_VER=$(echo "${CUR_VER_ORIG}" | sed 's/-alpha//g')
 			if [ -z "${CUR_VER}" ];then
 				CUR_VER="0"
@@ -159,8 +164,11 @@ install_binary(){
 
 move_binary(){
 	echo_date "开始安装sslocal二进制文件... "
-	mv /tmp/sslocal_bin/sslocal /koolshare/bin/sslocal
-	chmod +x /koolshare/bin/sslocal
+	mv /tmp/sslocal_bin/sslocal ${_TARGET_FILE}
+	chmod +x ${_TARGET_FILE}
+	if [ -f ${_TARGET_FILE} -a ! -f /koolshare/bin/sslocal ];then
+		ln -sf ${_TARGET_FILE} /koolshare/bin/sslocal
+	fi
 	LOCAL_VER=$(/koolshare/bin/sslocal --version 2>/dev/null | awk '{print $NF}')
 	if [ -n "${LOCAL_VER}" ];then
 		echo_date "shadowsocks-rust二进制文件:sslocal替换成功... "
