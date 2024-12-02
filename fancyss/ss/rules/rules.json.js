@@ -1,9 +1,9 @@
 {
   "gfwlist": {
     "name": "gfwlist.conf",
-    "date": "2024-11-01 00:38",
-    "md5": "f89b5dfe455bd122cf8b440927b92d89",
-    "count": "6805"
+    "date": "2024-12-03 01:26",
+    "md5": "87d1c8738323ffe2b38b9e8fdb80be32",
+    "count": "6822"
   },
   "chnroute_maxmind": {
     "name": "chnroute_maxmind.txt",
@@ -34,10 +34,10 @@
   },
   "chnroute_misakaio": {
     "name": "chnroute_misakaio.txt",
-    "date": "2024-11-08 02:38",
-    "md5": "c8e90e8c3e5e1a588471aa60622203b0",
-    "count": "4166",
-    "count_ip": "285502976",
+    "date": "2024-12-03 01:26",
+    "md5": "5856a715d1c0f58ae3b3fcffbba6b5aa",
+    "count": "4199",
+    "count_ip": "285669376",
     "source": "misakaio",
     "url": "https://github.com/misakaio/chnroutes2/blob/master/chnroutes.txt"
   },
@@ -52,27 +52,27 @@
   },
   "chnroute_apnic": {
     "name": "chnroute_apnic.txt",
-    "date": "2024-11-08 02:38",
-    "md5": "973cb206d9a7e4744413162aeffd1518",
-    "count": "8660",
-    "count_ip": "343136256",
+    "date": "2024-12-03 01:26",
+    "md5": "1611ff434f7825e7a91e2e673e3cc35b",
+    "count": "8667",
+    "count_ip": "343141888",
     "source": "apnic",
     "url": "http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest"
   },
   "chnroute": {
     "name": "chnroute.txt",
-    "date": "2024-11-08 02:38",
-    "md5": "c6187b54f03c5638b2a6d94a4fb29db1",
-    "count": "8368",
-    "count_ip": "359352068",
+    "date": "2024-12-03 01:26",
+    "md5": "ee79c042de1f4dd49e606fa3505bfc57",
+    "count": "8402",
+    "count_ip": "359384068",
     "source": "fancyss",
     "url": "https://github.com/hq450/fancyss/tree/3.0/rules"
   },
   "cdn_china": {
     "name": "cdn.txt",
-    "date": "2024-11-06 00:04",
-    "md5": "057dea0130a5db93fc42386a01084df4",
-    "count": "89213"
+    "date": "2024-12-03 01:26",
+    "md5": "353b4ad833e151fb6fbea12159c5aef2",
+    "count": "94116"
   },
   "apple_china": {
     "name": "apple_china.txt",
@@ -88,8 +88,8 @@
   },
   "cdn_test": {
     "name": "cdn_test.txt",
-    "date": "2024-09-29 11:26",
-    "md5": "110d8f1e1a3d6ff2d39fc568a2a5e792",
-    "count": "86"
+    "date": "2024-12-03 01:26",
+    "md5": "84b034525bca6b60fbffb68dc8fbb9cd",
+    "count": "87"
   }
 }

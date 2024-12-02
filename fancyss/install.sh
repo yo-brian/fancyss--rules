@@ -798,6 +798,7 @@ install_now(){
 	[ -z "${ss_basic_notimecheck}" ] && dbus set ss_basic_notimecheck=1
 	[ -z "${ss_basic_nocdnscheck}" ] && dbus set ss_basic_nocdnscheck=1
 	[ -z "${ss_basic_nofdnscheck}" ] && dbus set ss_basic_nofdnscheck=1
+	[ -z "${ss_basic_noruncheck}" ] && dbus set ss_basic_noruncheck=1
 	
 	[ "${ss_disable_aaaa}" != "1" ] && dbus set ss_basic_chng_no_ipv6=1
 	[ -z "${ss_basic_chng_xact}" ] && dbus set ss_basic_chng_xact=0
