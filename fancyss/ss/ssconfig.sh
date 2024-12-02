@@ -4426,7 +4426,6 @@ start_hysteria2(){
 	else
 		env -i PATH=${PATH} QUIC_GO_DISABLE_ECN=true hysteria2 -c /koolshare/ss/hysteria2.yaml >/dev/null 2>&1 &
 	fi
-	run_bg hysteria2 -c /koolshare/ss/hysteria2.yaml
 	detect_running_status hysteria2
 }
 
