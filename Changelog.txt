@@ -10,7 +10,7 @@ fancyss Changelog
    - todo 	更新chiandns-ng最新版
 
 3.3.4 (20241203)
-   - note	此次主要更新各个协议的二进制，同时进一步优化jffs空间占用，另外修复了国内外出口检测的一些bug。
+   - note	此次主要更新各个协议的二进制，同时进一步优化jffs空间占用，另外修复了国内外出口检测的一些bug及其它问题。
    - update	shadowsocks-rust二进制更新到v1.21.0，且安装包内置
    - update	v2ray二进制更新到v5.21.0
    - update	xray二进制更新到v24.9.30
