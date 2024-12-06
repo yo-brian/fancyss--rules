@@ -2,7 +2,7 @@
   "gfwlist": {
     "name": "gfwlist.conf",
     "date": "2024-12-06 15:58",
-    "md5": "87d1c8738323ffe2b38b9e8fdb80be33",
+    "md5": "CBC537C6B915911970F1205746917A9E",           
     "count": "6823"
   },
   "chnroute_maxmind": {
