@@ -1,7 +1,7 @@
 {
   "gfwlist": {
     "name": "gfwlist.conf",
-    "date": "2024-12-03 01:26",
+    "date": "2024-12-06 01:26",
     "md5": "87d1c8738323ffe2b38b9e8fdb80be32",
     "count": "6822"
   },
